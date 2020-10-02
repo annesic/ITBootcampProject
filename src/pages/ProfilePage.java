@@ -5,6 +5,7 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -107,12 +108,12 @@ public class ProfilePage extends BasicPage {
 		this.getZipCode().sendKeys(Keys.CONTROL, "a");
 		this.getZipCode().sendKeys(zipcode);
 
+		waiter.until(ExpectedConditions.elementToBeClickable(this.getCountry()));
 		this.getCountrySelected().selectByVisibleText(country);
-		Thread.sleep(1500);
+		waiter.until(ExpectedConditions.elementToBeClickable(this.getState()));
 		this.getStateSelected().selectByVisibleText(state);
-		Thread.sleep(1500);
+		waiter.until(ExpectedConditions.elementToBeClickable(this.getCity()));
 		this.getCitySelected().selectByVisibleText(city);
-		Thread.sleep(1500);
 
 		js.executeScript("arguments[0].click()", this.getSubmitButton());
 
