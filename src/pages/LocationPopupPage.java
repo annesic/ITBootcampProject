@@ -36,6 +36,8 @@ public class LocationPopupPage extends BasicPage {
 		return this.driver.findElement(By.name("btn_submit"));
 	}
 	
+//	 methods
+	
 	public void openPopup() {
 		this.getLocationHeader().click();
 	}
