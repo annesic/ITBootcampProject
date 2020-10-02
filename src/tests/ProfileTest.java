@@ -57,7 +57,7 @@ public class ProfileTest extends BasicTest {
 		Assert.assertTrue(notificationPage.getMessage().contains("Login Successfull"), "[ERROR] Login failure!");
 
 		driver.navigate().to(baseURL + "/member/profile");
-		String imagePath = new File("images/testPhoto.jpg").getCanonicalPath();
+		String imagePath = new File("images/projectPhoto.jpg").getCanonicalPath();
 		profilePage.uploadPhoto(imagePath);
 		waiter.until(ExpectedConditions.visibilityOf(notificationPage.getMessageElement()));
 		Assert.assertTrue(notificationPage.getMessage().contains("Profile Image Uploaded Successfully"),
