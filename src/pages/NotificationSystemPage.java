@@ -17,12 +17,12 @@ public class NotificationSystemPage extends BasicPage {
 		return this.driver.findElement(By.xpath(
 				"//*[contains(@class, 'alert--success') or contains(@class, 'alert--danger')][contains(@style,'display: block')]"));
 	}
-
-	public String message() {
+	
+	// methods
+	
+	public String getMessage() {
 		return this.getMessageElement().getText();
 	}
-	
-// method
 	
 	public void waitUntilMessageDisappears() {
 		waiter.until(ExpectedConditions.attributeContains((By.xpath("//*[contains(@class, 'system_message')]")),
