@@ -52,7 +52,7 @@ public class MealItemTest extends BasicTest {
 		driver.navigate().to(baseURL + "meal/lobster-shrimp-chicken-quesadilla-combo");
 		popupPage.closePopup();
 		mealPage.addToFavourite();
-		Assert.assertTrue(notificationPage.getMessage().contains("Please login first!"), "[ERROR] occured!");
+		Assert.assertTrue(notificationPage.getMessage().contains("Please login first!"), "[ERROR] occured! Meal has been added to favourites without logging in!");
 		notificationPage.waitUntilMessageDisappears();
 		Thread.sleep(1500);
 
@@ -62,7 +62,7 @@ public class MealItemTest extends BasicTest {
 		mealPage.addToFavourite();
 		Thread.sleep(1500);
 		Assert.assertTrue(notificationPage.getMessage().contains("Product has been added to your favorites."),
-				"[ERROR] occured!");
+				"[ERROR] occured! Product hasn`t been added to your favourites");
 	}
 	
 	@Test(priority = 6)
@@ -87,9 +87,9 @@ public class MealItemTest extends BasicTest {
 			String meal = row.getCell(0).getStringCellValue();
 			driver.navigate().to(meal);
 			mealPage.addToCard("1");
-			softAssert.assertTrue(notificationPage.getMessage().contains("Meal Added To Cart"), "[ERROR] Cart is empty!");
+			softAssert.assertTrue(notificationPage.getMessage().contains("Meal Added To Cart"), "[ERROR] meal has`t been added to Cart!");
 		}
-		
+	
 		Thread.sleep(1500);
 		softAssert.assertAll();
 		
