@@ -13,9 +13,9 @@ public class CartSummaryPage extends BasicPage {
 	}
 
 	public WebElement getClearButton() {
-		return this.driver.findElement(By.xpath("//*[@onclick='clearCartItems()']"));
+		return this.driver.findElement(By.xpath("//*[@class='cart-head']/a[2]"));
 	}
-	
+
 //	method 
 	
 	public void allClear() {
